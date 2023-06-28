@@ -14,6 +14,7 @@ async function updateTimestamp() {
     }
     return hour, minute
 }
+
 async function setActivity() {
     if (!RPC) return;
     RPC.setActivity({
