@@ -36,4 +36,4 @@ RPC.on("ready", async() => {
 })
 
 RPC.login({clientId}).catch(console.error())
-console.log("RPC Started Successfully! 🥳 🎉")
+console.log("RPC Started Successfully!")
