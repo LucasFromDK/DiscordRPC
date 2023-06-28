@@ -1,9 +1,15 @@
-const { clientId } = require('./config.json')
+const { clientId, refreshTime } = require('./config.json')
 const DiscordRPC = require("discord-rpc")
 const RPC = new DiscordRPC.Client({ transport:"ipc" })
 const startTime = Date.now()
-const refreshTime = 120 //Value will be converted from milliseconds to seconds.
+var hour = new Date().getHours()
+var minute = new Date().getMinutes()
 
+async function updateTimestamp() {
+    hour = new Date().getHours()
+    minute = new Date().getMinutes()
+    return hour, minute
+}
 async function setActivity() {
     if (!RPC) return;
     RPC.setActivity({
@@ -32,9 +38,11 @@ RPC.on("ready", async() => {
     setActivity()
     setInterval(() => {
         setActivity();
-        console.log(` RPC Updated Successfully! Next Update in ${refreshTime} seconds.`)
+        updateTimestamp();
+        console.log(` ${hour}:${minute} | RPC Updated Successfully! Next Update in ${refreshTime} seconds.`)
     }, refreshTime*1000) //Refresh Delay, refreshTime being in seconds.
+    return hour, minute
 })
 
 RPC.login({clientId}).catch(console.error())
-console.log(` RPC Started Successfully! RPC Status Updates every ${refreshTime} seconds.`)
+console.log(` ${hour}:${minute} | RPC Started Successfully! RPC Status updates every ${refreshTime} seconds, which is equal to ${refreshTime/60} minutes.`)
