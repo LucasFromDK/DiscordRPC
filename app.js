@@ -32,7 +32,7 @@ RPC.on("ready", async() => {
     setActivity()
     setInterval(() => {
         setActivity();
-        console.log(` RPC Updates Successfully! Next Update in ${refreshTime} seconds.`)
+        console.log(` RPC Updated Successfully! Next Update in ${refreshTime} seconds.`)
     }, refreshTime*1000) //Refresh Delay, refreshTime being in seconds.
 })
 
