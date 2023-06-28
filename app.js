@@ -10,9 +10,9 @@ async function setActivity() {
         details: "Welcome to my profile!",
         state: "Playing with RPC",
         startTimestamp: startTime,
-        largeImageKey: "largeimage",
+        largeImageKey: "largeimage", //If you want a gif here, replace largeimage with the gif link.
         largeImageText: "Lorem Ipsum",
-        smallImageKey: "smallimage",
+        smallImageKey: "smallimage", //If you want a gif here, replace smallimage with the gif link.
         smallImageText: "Lorem Ipsum",
         instance: false,
         buttons: [
