@@ -9,8 +9,12 @@ async function updateTimestamp() {
     hour = new Date().getHours()
     minute = new Date().getMinutes()
     //Makes sure time format is hh:mm and not hh:m
-    if (minute > 0 && minute < 10) {
+    if (minute >= 0 && minute < 10) {
         minute = `0${minute}`
+    }
+    //Makes sure time format is hh:mm and not h:mm
+    if (hour >= 0 && hour < 10) {
+        hour = `0${hour}`
     }
     return hour, minute
 }
