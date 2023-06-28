@@ -1,5 +1,5 @@
 @echo off
-title Discord RPC Client
+title DiscordRPC Client
 color A
 type ASCII.txt
 
