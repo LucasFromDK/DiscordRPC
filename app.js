@@ -31,9 +31,9 @@ RPC.on("ready", async() => {
     setActivity()
     setInterval(() => {
         setActivity();
-        console.log("RPC Updated Successfully.")
+        console.log(" RPC Updated Successfully.")
     }, 60*1000) //Refresh Delay In Seconds X*1000, X being seconds.
 })
 
 RPC.login({clientId}).catch(console.error())
-console.log("RPC Started Successfully!")
+console.log(" RPC Started Successfully!")

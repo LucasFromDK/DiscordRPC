@@ -1,6 +1,7 @@
 @echo off
-title RPC Client
+title Discord RPC Client
 color A
+type ASCII.txt
 
 node .
 pause
