@@ -8,6 +8,10 @@ var minute = new Date().getMinutes()
 async function updateTimestamp() {
     hour = new Date().getHours()
     minute = new Date().getMinutes()
+    //Makes sure time format is hh:mm and not hh:m
+    if (minute > 0 && minute < 10) {
+        minute = `0${minute}`
+    }
     return hour, minute
 }
 async function setActivity() {

@@ -1,7 +1,9 @@
 @echo off
-title DiscordRPC Client
+title DiscordRPC Terminal
 color A
 type ASCII.txt
 
+:start
 node .
+goto start
 pause
