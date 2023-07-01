@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/LucasFromDK/DiscordRPC#readme",
   "dependencies": {
-    "discord-rpc": "^4.0.1"
+    "discord-rpc": "^4.0.1",
+    "fs": "^0.0.1-security"
   }
 }
