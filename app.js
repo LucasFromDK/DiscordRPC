@@ -10,18 +10,18 @@ var hour, minute;
 function updateText() {
     var jsonData = fs.readFileSync("./dynamicText.json", "utf8"); //To update the text, change value of the field in dynamicText.json
     var parsedData = JSON.parse(jsonData);
-    stateText = parsedData.stateText;
     detailText = parsedData.detailText;
+    stateText = parsedData.stateText;
     largeImageText = parsedData.largeImageText;
     smallImageText = parsedData.smallImageText;
     return stateText, detailText, largeImageText, smallImageText;
   }
 
 function updateImage() {
-    var jsonData = fs.readFileSync("./dynamicImages.json", "utf8"); //To update the Image, change value of the field in dynamicImages.json
+    var jsonData = fs.readFileSync("./dynamicImages.json", "utf8");
     var parsedData = JSON.parse(jsonData);
-    largeImageKey = parsedData.largeImageKey
-    smallImageKey = parsedData.smallImageKey
+    largeImageKey = parsedData.largeImageKey;
+    smallImageKey = parsedData.smallImageKey;
     return largeImageKey, smallImageKey;
 }
 
@@ -47,9 +47,9 @@ async function setActivity() {
         details: `${detailText}`,
         state: `${stateText}`,
         startTimestamp: startTime,
-        largeImageKey: `${largeImageKey}`, //If you want a gif here, replace largeimage with the gif link.
+        largeImageKey: `${largeImageKey}`, //If you want a gif as the largeImage, replace largeImageKey with the gif link in dynamicImages.json, same goes for smallImageKey.
         largeImageText: `${largeImageText}`,
-        smallImageKey: `${smallImageKey}`, //If you want a gif here, replace smallimage with the gif link.
+        smallImageKey: `${smallImageKey}`,
         smallImageText: `${smallImageText}`,
         instance: false,
         buttons: [
@@ -75,5 +75,5 @@ RPC.on("ready", async() => {
     return hour, minute;
 })
 
-RPC.login({clientId}).catch(console.error(), updateTimestamp());
+RPC.login({clientId}).catch(console.error(), updateTimestamp()); //ClientId should be placed in config.json along with refreshTime value in seconds.
 console.log(` ${hour}:${minute} | RPC Started Successfully! RPC Status updates every ${refreshTime} seconds, which is equal to ${refreshTime/60} minutes.`);
